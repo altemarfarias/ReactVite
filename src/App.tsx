@@ -1,40 +1,33 @@
 import './App.css'
+import { useState } from 'react'
 
-const Usuarios = [
-  {
-    nome: "João",
-    endereco: "Rua do Senhor Jesus",
-    bairro: "Bancários"
-  },
+function FrontBeginnersApp() {
 
-  {
-    nome: "Antonio",
-    endereco: "Rua da Paz",
-    bairro: "Centro"
-  },
+  const [count, setCount] = useState(0)
+  const [valueInput, setValueInput] = useState('Altemar')
 
-  {
-    nome: "Maria Joana",
-    endereco: "Rua da Liberdade",
-    bairro: "Mangabeira"
-  },
+  const add = () => {
+    setCount(count + 1)
+    console.log(count)
+  }
 
-]
-
-function App() {
-  
+  const onChangeInput = (event) => {
+    setValueInput(event.target.value)
+  }
 
   return (
-    <>      
-    <div>
-      {Usuarios.map((usuario) => (
-        <div>{usuario.nome}: {usuario.endereco} - {usuario.bairro} </div>   
-      ))}
+    <div className='App'>
+      <h1>Front Beginners</h1>
+      <h3>{count}</h3>
+      <button onClick={add}>Adicionar</button>
+      <div>
+        <input onChange={onChangeInput}></input>
+      </div>
+      <h3>{valueInput}</h3>
     </div>
-   
+    
 
-    </>
 )
 }
 
-export default App
+export default  FrontBeginnersApp
